@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expository Writing — Exam Study Notes</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap');
+
+  :root {
+    --ink: #1a1a2e;
+    --paper: #fefcf7;
+    --accent: #c0392b;
+    --gold: #d4a017;
+    --teal: #1a7a6e;
+    --soft: #f0ebe0;
+    --muted: #7a7060;
+    --tip-bg: #fffbe6;
+    --tip-border: #d4a017;
+    --ex-bg: #f0f7f5;
+    --ex-border: #1a7a6e;
+    --warn-bg: #fdf0f0;
+    --warn-border: #c0392b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  /* HEADER */
+  .hero {
+    background: var(--ink);
+    color: #fff;
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(192,57,43,0.18);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(212,160,23,0.12);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.4rem;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero p { color: #ccc; font-size: 0.95rem; }
+  .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  /* NAV */
+  .toc {
+    background: var(--soft);
+    border-bottom: 2px solid var(--gold);
+    padding: 1.2rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  .toc a {
+    text-decoration: none;
+    color: var(--ink);
+    background: #fff;
+    border: 1.5px solid #d5cfc0;
+    padding: 0.3rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .toc a:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  /* LAYOUT */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+  /* SECTION */
+  .section {
+    margin-top: 3rem;
+    border-left: 4px solid var(--accent);
+    padding-left: 1.2rem;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+  .section-num {
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 900;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--ink);
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--teal);
+    margin: 1.4rem 0 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  p { margin-bottom: 0.8rem; }
+  ul, ol { padding-left: 1.4rem; margin-bottom: 0.9rem; }
+  li { margin-bottom: 0.35rem; }
+
+  /* CALLOUTS */
+  .tip {
+    background: var(--tip-bg);
+    border-left: 4px solid var(--tip-border);
+    padding: 0.9rem 1.1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+  }
+  .tip::before {
+    content: '💡 EXAM TIP';
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+  .example {
+    background: var(--ex-bg);
+    border-left: 4px solid var(--ex-border);
+    padding: 0.9rem 1.1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+    font-size: 0.93rem;
+  }
+  .example::before {
+    content: '📝 EXAMPLE';
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--teal);
+    margin-bottom: 0.3rem;
+  }
+  .warn {
+    background: var(--warn-bg);
+    border-left: 4px solid var(--warn-border);
+    padding: 0.9rem 1.1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+  }
+  .warn::before {
+    content: '⚠️ AVOID THIS';
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+  }
+
+  /* TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+  }
+  th {
+    background: var(--ink);
+    color: #fff;
+    padding: 0.6rem 0.9rem;
+    text-align: left;
+    font-weight: 600;
+  }
+  td {
+    padding: 0.55rem 0.9rem;
+    border-bottom: 1px solid #e0d9cc;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: var(--soft); }
+  .good { color: var(--teal); font-weight: 600; }
+  .bad { color: var(--accent); font-weight: 600; }
+
+  /* STRUCTURE DIAGRAM */
+  .essay-struct {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin: 1rem 0;
+  }
+  .struct-block {
+    padding: 0.7rem 1.1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    position: relative;
+  }
+  .struct-intro { background: #d5e8d4; border-left: 5px solid #5a9e53; }
+  .struct-body  { background: #dae8fc; border-left: 5px solid #4a7cbf; }
+  .struct-conc  { background: #ffe6cc; border-left: 5px solid #d68a00; }
+  .struct-block span { font-weight: 400; font-size: 0.82rem; color: #555; display: block; }
+
+  /* DIVIDER */
+  hr { border: none; border-top: 1.5px dashed #d5cfc0; margin: 2.5rem 0; }
+
+  /* QUICK REF */
+  .quick-ref {
+    background: var(--ink);
+    color: #fff;
+    padding: 1.5rem 1.8rem;
+    border-radius: 10px;
+    margin-top: 3rem;
+  }
+  .quick-ref h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .quick-ref ul { color: #ddd; }
+  .quick-ref li { margin-bottom: 0.45rem; }
+  .quick-ref li strong { color: #fff; }
+
+  /* COHESIVE TABLE */
+  .cohesive-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .cohesive-card {
+    background: #fff;
+    border: 1.5px solid #d5cfc0;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  .cohesive-card h4 {
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--accent);
+  }
+  .cohesive-card li { font-size: 0.85rem; }
+
+  /* STORY ELEMENTS GRID */
+  .elements-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin: 1rem 0;
+  }
+  .elem-card {
+    background: #fff;
+    border: 1.5px solid #d5cfc0;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+  }
+  .elem-card h4 {
+    font-weight: 700;
+    color: var(--teal);
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+  }
+  .elem-card p { font-size: 0.85rem; margin: 0; color: #444; }
+
+  @media (max-width: 600px) {
+    .cohesive-grid { grid-template-columns: 1fr; }
+    .elements-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.9rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">📚 Exam Prep</div>
+  <h1>Expository <span>Writing</span></h1>
+  <p>Complete Study Notes · All 8 Topics · Examples + Tips Included</p>
+</div>
+
+<nav class="toc">
+  <a href="#story">Story Writing</a>
+  <a href="#essay">Essay Writing</a>
+  <a href="#reading">Reading for Writing</a>
+  <a href="#summary">Summary Writing</a>
+  <a href="#cohesive">Cohesive Devices</a>
+  <a href="#listening">Listening Skills</a>
+  <a href="#letter">Letter Writing</a>
+  <a href="#vocab">Vocabulary Skills</a>
+</nav>
+
+<div class="container">
+
+<!-- ───────────────── 1. STORY WRITING ───────────────── -->
+<div class="section" id="story">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <h2>Story Writing</h2>
+  </div>
+
+  <h3>The Writing Process</h3>
+  <ol>
+    <li><strong>Pre-writing</strong> — Brainstorm ideas; decide on characters, setting, conflict. Use a story map or outline.</li>
+    <li><strong>Drafting</strong> — Write freely. Focus on getting the story down; don't edit yet.</li>
+    <li><strong>Revising</strong> — Improve content: add details, strengthen dialogue, fix pacing.</li>
+    <li><strong>Editing/Proofreading</strong> — Fix grammar, spelling, punctuation.</li>
+    <li><strong>Publishing/Sharing</strong> — Final clean copy.</li>
+  </ol>
+
+  <h3>Elements / Components of a Story</h3>
+  <div class="elements-grid">
+    <div class="elem-card">
+      <h4>📍 Setting</h4>
+      <p>The <em>where</em> and <em>when</em> of the story. Establishes mood and context.</p>
+    </div>
+    <div class="elem-card">
+      <h4>👤 Characters</h4>
+      <p>The people/beings in the story. Include a <em>protagonist</em> (hero) and often an <em>antagonist</em> (opponent).</p>
+    </div>
+    <div class="elem-card">
+      <h4>⚡ Conflict</h4>
+      <p>The central problem. Types: Person vs. Person, Person vs. Nature, Person vs. Self, Person vs. Society.</p>
+    </div>
+    <div class="elem-card">
+      <h4>📈 Plot</h4>
+      <p>The sequence of events: Exposition → Rising Action → Climax → Falling Action → Resolution.</p>
+    </div>
+    <div class="elem-card">
+      <h4>🎯 Theme</h4>
+      <p>The central message or lesson the story conveys (e.g., "Honesty is the best policy").</p>
+    </div>
+    <div class="elem-card">
+      <h4>🗣️ Point of View</h4>
+      <p>First person (I), Second person (you), or Third person (he/she/they).</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    In an exam, always establish <strong>Setting + Character + Conflict</strong> in the opening paragraph. Examiners award marks for a clear story arc — make sure your story has a beginning, middle, and end.
+  </div>
+
+  <div class="example">
+    <strong>Strong opening:</strong> "The night Ali arrived at the empty railway station, he had exactly three rupees and no plan." — This instantly sets place, character, and conflict.
+  </div>
+</div>
+
+<hr>
+
+<!-- ───────────────── 2. ESSAY WRITING ───────────────── -->
+<div class="section" id="essay">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <h2>Essay Writing</h2>
+  </div>
+
+  <h3>Developing an Essay Outline</h3>
+  <p>An outline is a roadmap. Always outline before writing. A good outline uses your <strong>thesis</strong> and <strong>topic sentences</strong>.</p>
+  <div class="essay-struct">
+    <div class="struct-block struct-intro">Introduction <span>Hook → Background → Thesis Statement (the "what" and "how" of your argument)</span></div>
+    <div class="struct-block struct-body">Body Paragraph 1 <span>Topic Sentence → Evidence/Detail → Analysis → Transition</span></div>
+    <div class="struct-block struct-body">Body Paragraph 2 <span>Topic Sentence → Evidence/Detail → Analysis → Transition</span></div>
+    <div class="struct-block struct-body">Body Paragraph 3 <span>Topic Sentence → Evidence/Detail → Analysis → Transition</span></div>
+    <div class="struct-block struct-conc">Conclusion <span>Restate thesis → Summarise key points → Fresh insight / call to action</span></div>
+  </div>
+
+  <h3>Types of Essays</h3>
+
+  <h3 style="color:#c0392b">📖 Narrative Essay</h3>
+  <p>Tells a personal story or experience. Written in first person. Follows a plot-like structure. Uses vivid, sensory description.</p>
+  <div class="example">
+    Topic: "A time I overcame a challenge." — Narrate the event with dialogue, feelings, and a clear turning point.
+  </div>
+
+  <h3 style="color:#c0392b">📋 Expository Essay</h3>
+  <p>Explains, informs, or describes a topic objectively. No personal opinion. Uses facts, definitions, comparisons, or step-by-step processes. This is the <strong>core essay type</strong> for this course.</p>
+  <div class="example">
+    Topic: "How social media affects teenagers." — Present researched facts, causes, and effects without taking sides.
+  </div>
+
+  <h3 style="color:#c0392b">🗣️ Persuasive / Argumentative Essay</h3>
+  <p>Takes a <strong>debatable position</strong> and uses logic and evidence to convince the reader. Must include:</p>
+  <ul>
+    <li><strong>Thesis</strong> — a clear, arguable claim</li>
+    <li><strong>Antithesis</strong> — acknowledging the opposing view (then refuting it)</li>
+    <li><strong>Evidence</strong> — facts, statistics, expert opinion</li>
+    <li>Avoidance of logical fallacies</li>
+  </ul>
+  <div class="example">
+    <strong>Thesis:</strong> "Term limits improve government by bringing fresh ideas into office."<br>
+    <strong>Antithesis:</strong> "Term limits harm government because officials are always inexperienced."<br>
+    → Acknowledging the antithesis and then rebutting it strengthens YOUR argument.
+  </div>
+  <div class="tip">
+    Avoid vague words like "wrong," "bad," or "good" in your thesis. Be precise: instead of "Social media is bad," write "Social media significantly reduces adolescent attention spans."
+  </div>
+
+  <h3 style="color:#c0392b">🎨 Descriptive Essay</h3>
+  <p>Paints a picture of a person, place, object, or experience using the <strong>five senses</strong>. Goal: make the reader <em>feel</em> present. Uses figurative language (similes, metaphors).</p>
+  <div class="example">
+    "The old library smelled of cedar and old paper; the afternoon light sliced through dusty windows in golden bars."
+  </div>
+
+  <table>
+    <tr><th>Essay Type</th><th>Purpose</th><th>Key Feature</th></tr>
+    <tr><td>Narrative</td><td>Entertain / share experience</td><td>Story structure, first person</td></tr>
+    <tr><td>Expository</td><td>Explain / inform</td><td>Objective, fact-based</td></tr>
+    <tr><td>Persuasive</td><td>Convince / argue</td><td>Thesis + evidence + refutation</td></tr>
+    <tr><td>Descriptive</td><td>Describe / evoke</td><td>Sensory details, figurative language</td></tr>
+  </table>
+</div>
+
+<hr>
+
+<!-- ───────────────── 3. READING FOR WRITING II ───────────────── -->
+<div class="section" id="reading">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <h2>Reading for Writing II</h2>
+  </div>
+
+  <h3>Drawing Connections</h3>
+  <p>Connecting new ideas to what you already know or to other texts. Three types:</p>
+  <ul>
+    <li><strong>Text-to-Self:</strong> How does this relate to my own life?</li>
+    <li><strong>Text-to-Text:</strong> Does this remind me of another text I've read?</li>
+    <li><strong>Text-to-World:</strong> How does this connect to current events or society?</li>
+  </ul>
+
+  <h3>Identifying Themes</h3>
+  <p>A <strong>theme</strong> is the central message or truth about life expressed in a text. It is NOT the topic — it's what the text <em>says about</em> the topic.</p>
+  <div class="example">
+    <strong>Topic:</strong> Friendship &nbsp;|&nbsp; <strong>Theme:</strong> "True friendship endures hardship."
+  </div>
+  <p>To find the theme: ask <em>"What does this text want me to understand about human life?"</em></p>
+
+  <h3>Main Idea and Sub-Ideas</h3>
+  <ul>
+    <li><strong>Main Idea</strong> = the most important point of a paragraph or text (usually stated in the topic sentence or thesis).</li>
+    <li><strong>Sub-ideas / Supporting Details</strong> = facts, examples, statistics, anecdotes that develop the main idea.</li>
+  </ul>
+  <div class="tip">
+    To find the main idea: cover the examples and ask, "What one claim does this paragraph make?" That's your main idea. Everything else is support.
+  </div>
+
+  <h3>Inference and Prediction</h3>
+  <ul>
+    <li><strong>Inference:</strong> A conclusion drawn from evidence + prior knowledge. The answer is <em>not</em> directly stated. "Reading between the lines."</li>
+    <li><strong>Prediction:</strong> Using clues in the text to anticipate what will happen next.</li>
+  </ul>
+  <div class="example">
+    Text says: "She grabbed her umbrella and sighed at the dark clouds." <br>
+    <strong>Inference:</strong> She expects it to rain and is not pleased about it.
+  </div>
+
+  <h3>Summarising and Synthesising</h3>
+  <ul>
+    <li><strong>Summarising</strong> = condensing the main points of ONE text in your own words.</li>
+    <li><strong>Synthesising</strong> = combining ideas from MULTIPLE sources to build a new understanding.</li>
+  </ul>
+  <div class="tip">
+    Summarising is like zooming out to see the whole picture; synthesising is weaving multiple pictures together.
+  </div>
+</div>
+
+<hr>
+
+<!-- ───────────────── 4. SUMMARY WRITING ───────────────── -->
+<div class="section" id="summary">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <h2>Summary Writing</h2>
+  </div>
+
+  <h3>Structure of a Summary</h3>
+  <p>A good summary has three clear parts:</p>
+  <div class="essay-struct">
+    <div class="struct-block struct-intro">Opening Sentence <span>Name the source/author + state the main idea of the original text.</span></div>
+    <div class="struct-block struct-body">Body Sentences <span>Cover the key supporting points in order, in your own words. Omit examples and minor details.</span></div>
+    <div class="struct-block struct-conc">Closing Sentence <span>Restate the author's conclusion or overall purpose.</span></div>
+  </div>
+
+  <h3>Rules for Writing a Summary (MOM Checklist)</h3>
+  <ul>
+    <li><strong>M</strong> = Main points covered — include only essential ideas</li>
+    <li><strong>O</strong> = Organised — follow the original order logically</li>
+    <li><strong>M</strong> = My own words — do NOT copy sentences from the original</li>
+  </ul>
+
+  <div class="warn">
+    Never include your own opinion in a summary. A summary reports what the author said, not what you think about it.
+  </div>
+
+  <div class="tip">
+    Aim for about ⅓ of the original length. If the passage is 300 words, your summary should be ~90–100 words.
+  </div>
+
+  <div class="example">
+    <strong>Original passage (excerpt):</strong> "For over 20 years, biologists have been alarmed that amphibian populations have been declining in both human-populated and seemingly untouched areas. Clear proof has been difficult because there is no reliable data on past population sizes."<br><br>
+    <strong>Summary:</strong> Scientists have been concerned about falling amphibian numbers across various environments for more than two decades, though demonstrating this conclusively remains difficult due to insufficient historical data.
+  </div>
+</div>
+
+<hr>
+
+<!-- ───────────────── 5. COHESIVE DEVICES ───────────────── -->
+<div class="section" id="cohesive">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <h2>Using Cohesive Devices in Writing</h2>
+  </div>
+
+  <p>Cohesive devices are words and phrases that <strong>connect ideas</strong> and create flow between sentences and paragraphs. They guide the reader through your argument.</p>
+
+  <div class="cohesive-grid">
+    <div class="cohesive-card">
+      <h4>⏱ Time &amp; Sequence</h4>
+      <ul>
+        <li>First, second, finally</li>
+        <li>Next, then, after that</li>
+        <li>Meanwhile, subsequently</li>
+        <li>Before, after, during</li>
+        <li>At first, in the end</li>
+        <li>Eventually, previously</li>
+      </ul>
+    </div>
+    <div class="cohesive-card">
+      <h4>➕ Addition &amp; Contrast</h4>
+      <ul>
+        <li><em>Addition:</em> furthermore, in addition, also, moreover, besides, not only…but also</li>
+        <li><em>Contrast:</em> however, on the other hand, nevertheless, although, despite, yet, in contrast, whereas</li>
+      </ul>
+    </div>
+    <div class="cohesive-card">
+      <h4>🎯 Reason, Purpose &amp; Result</h4>
+      <ul>
+        <li><em>Reason:</em> because, since, as, due to, owing to</li>
+        <li><em>Purpose:</em> so that, in order to, to</li>
+        <li><em>Result:</em> therefore, thus, consequently, as a result, hence, so</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="example">
+    <strong>Without cohesive devices:</strong> "She studied hard. She failed the exam. She was disappointed."<br><br>
+    <strong>With cohesive devices:</strong> "Although she studied hard, she failed the exam. <em>Consequently</em>, she felt deeply disappointed. <em>Nevertheless</em>, she resolved to try again."
+  </div>
+
+  <div class="tip">
+    In your exam essay, use at least <strong>one cohesive device per paragraph</strong> — to open it (linking to previous idea) and one to close it (transitioning to the next). Examiners specifically look for this.
+  </div>
+</div>
+
+<hr>
+
+<!-- ───────────────── 6. LISTENING SKILLS ───────────────── -->
+<div class="section" id="listening">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <h2>Listening Skills</h2>
+  </div>
+
+  <h3>Types of Listening</h3>
+  <table>
+    <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+    <tr>
+      <td><strong>Active Listening</strong></td>
+      <td>Full attention; responding and engaging</td>
+      <td>Nodding, asking follow-up questions in a lecture</td>
+    </tr>
+    <tr>
+      <td><strong>Passive Listening</strong></td>
+      <td>Hearing without engaging; not processing deeply</td>
+      <td>Background music while working</td>
+    </tr>
+    <tr>
+      <td><strong>Critical Listening</strong></td>
+      <td>Evaluating and analysing what is heard</td>
+      <td>Listening to a debate and assessing arguments</td>
+    </tr>
+    <tr>
+      <td><strong>Empathetic Listening</strong></td>
+      <td>Understanding the speaker's feelings and perspective</td>
+      <td>Listening to a friend share a problem</td>
+    </tr>
+    <tr>
+      <td><strong>Informational Listening</strong></td>
+      <td>Listening specifically to learn or gather facts</td>
+      <td>Following instructions, attending a lecture</td>
+    </tr>
+    <tr>
+      <td><strong>Appreciative Listening</strong></td>
+      <td>Listening for enjoyment or aesthetic pleasure</td>
+      <td>Enjoying a poem or music</td>
+    </tr>
+  </table>
+
+  <h3>Tips for Improving Listening Skills</h3>
+  <ul>
+    <li><strong>Focus fully</strong> — eliminate distractions; make eye contact with the speaker.</li>
+    <li><strong>Don't interrupt</strong> — wait for the speaker to finish before responding.</li>
+    <li><strong>Take notes</strong> — jot down key words, not full sentences. Handwritten notes improve recall.</li>
+    <li><strong>Ask clarifying questions</strong> — "Could you repeat that?" or "What do you mean by…?"</li>
+    <li><strong>Listen for signal words</strong> — "Most importantly," "In conclusion," "However" signal key information.</li>
+    <li><strong>Summarise mentally</strong> — periodically recap what you've heard to check understanding.</li>
+    <li><strong>Avoid prejudging</strong> — don't decide what the speaker means before they finish.</li>
+  </ul>
+
+  <div class="tip">
+    Research shows students who take handwritten notes perform <strong>significantly better</strong> on recall tests than those who type. Write key words and main ideas, not every word.
+  </div>
+</div>
+
+<hr>
+
+<!-- ───────────────── 7. LETTER WRITING ───────────────── -->
+<div class="section" id="letter">
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <h2>Letter Writing</h2>
+  </div>
+
+  <h3>Format — The Seven Parts</h3>
+  <table>
+    <tr><th>#</th><th>Part</th><th>Details</th><th>Example</th></tr>
+    <tr>
+      <td>1</td>
+      <td><strong>Sender's Address</strong></td>
+      <td>Top left. Full address. No name here.</td>
+      <td>14 Maple Street, Lahore 54000</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>Date</strong></td>
+      <td>One line below address. Full words, no abbreviation.</td>
+      <td>15 May 2026</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>Recipient's Address</strong></td>
+      <td>Full name, title, department, address.</td>
+      <td>Ms. Ayesha Khan, Director, Admissions Office, UoP</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>Salutation</strong></td>
+      <td>"Dear" + title + surname + comma.</td>
+      <td>Dear Ms. Khan,</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><strong>Subject Line</strong> (optional)</td>
+      <td>Bold/underlined. States purpose.</td>
+      <td>Re: Application for the 2026 Scholarship</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><strong>Body</strong></td>
+      <td>Para 1: Purpose | Para 2–3: Evidence | Final: Request</td>
+      <td>See annotated example below</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><strong>Closing &amp; Signature</strong></td>
+      <td>Valediction + 3–4 blank lines + printed name</td>
+      <td>Yours sincerely, [space] Ahmad Raza</td>
+    </tr>
+  </table>
+
+  <div class="warn">
+    <strong>Sincerely vs. Faithfully:</strong> Use "Yours sincerely" when you know the recipient's name. Use "Yours faithfully" when you don't (opened with "Dear Sir/Madam"). Mixing them is a very common exam error.
+  </div>
+
+  <h3>Formatting Rules</h3>
+  <ul>
+    <li><strong>Block format</strong> — everything flush left, no paragraph indentation.</li>
+    <li>One blank line between every section.</li>
+    <li>Font: 11–12pt professional (Times New Roman, Calibri).</li>
+    <li>Margins: 1 inch (2.5 cm) on all sides.</li>
+    <li>Single-spaced within paragraphs.</li>
+    <li>Date written in full words — never "15/5/26".</li>
+  </ul>
+
+  <h3>Tone &amp; Language Techniques</h3>
+  <table>
+    <tr><th>Situation</th><th class="bad">✗ Avoid (Informal)</th><th class="good">✓ Prefer (Formal)</th></tr>
+    <tr><td>Contractions</td><td>I can't attend</td><td>I am unable to attend</td></tr>
+    <tr><td>Colloquialisms</td><td>I wanted to touch base</td><td>I am writing regarding…</td></tr>
+    <tr><td>Emotional language</td><td>I am furious about this</td><td>I respectfully contest this decision</td></tr>
+    <tr><td>Vague requests</td><td>Get back to me when you can</td><td>I would appreciate a response by 30 May 2026</td></tr>
+    <tr><td>Unknown recipient</td><td>Hi there / To Whom It May Concern</td><td>Dear Sir/Madam,</td></tr>
+    <tr><td>Passive voice</td><td>The report was reviewed by me</td><td>I reviewed the report</td></tr>
+  </table>
+
+  <h3>Three Core Principles</h3>
+  <ul>
+    <li><strong>Be precise</strong> — name specific dates, amounts, and references. Vagueness undermines authority.</li>
+    <li><strong>Stay objective</strong> — express grievances through documented facts, not emotional reaction.</li>
+    <li><strong>One idea per paragraph</strong> — each paragraph has a single function: state, support, or request.</li>
+  </ul>
+
+  <div class="tip">
+    State your purpose in the <strong>very first sentence</strong> of the body. Don't bury it: "I am writing to apply for the 2026 Merit Scholarship" — not "I have been a student at…" (backstory first). Examiners want your purpose upfront.
+  </div>
+</div>
+
+<hr>
+
+<!-- ───────────────── 8. VOCABULARY SKILLS ───────────────── -->
+<div class="section" id="vocab">
+  <div class="section-header">
+    <div class="section-num">8</div>
+    <h2>Vocabulary Skills</h2>
+  </div>
+
+  <h3>Inclusive Terms — Definition</h3>
+  <p><strong>Inclusive language</strong> is language that is respectful, unbiased, and avoids discrimination based on gender, age, ability, race, or social background. It ensures communication is fair and representative of all groups.</p>
+
+  <h3>Key Principles of Inclusive Language</h3>
+  <ul>
+    <li><strong>Gender-Neutral Terms</strong> — Instead of "chairman" → "chairperson"; use "they/them" for unknown gender.</li>
+    <li><strong>Avoid Ableist Language</strong> — Instead of "handicapped" → "person with a disability."</li>
+    <li><strong>Respect Identity &amp; Pronouns</strong> — Use a person's preferred name and pronouns.</li>
+    <li><strong>Be Culturally Aware</strong> — Instead of "blacklist/whitelist" → "deny list/allow list."</li>
+    <li><strong>Eliminate Ageist Language</strong> — Instead of "elderly" → "older adult."</li>
+  </ul>
+
+  <div class="example">
+    <strong>Exclusive:</strong> "Hey guys, let's get started on this project."<br>
+    <strong>Inclusive:</strong> "Hey everyone, let's get started on this project."<br>
+    → "Guys" may unintentionally exclude non-male participants. "Everyone" ensures inclusivity.
+  </div>
+
+  <table>
+    <tr><th>Exclusive Term</th><th>Inclusive Alternative</th></tr>
+    <tr><td>Fireman</td><td>Firefighter</td></tr>
+    <tr><td>Stewardess</td><td>Flight attendant</td></tr>
+    <tr><td>Mankind</td><td>Humanity / Humankind</td></tr>
+    <tr><td>Elderly</td><td>Older adult</td></tr>
+    <tr><td>Handicapped</td><td>Person with a disability</td></tr>
+    <tr><td>Guys (mixed group)</td><td>Everyone / Folks / All</td></tr>
+    <tr><td>Blacklist</td><td>Deny list</td></tr>
+    <tr><td>Chairman</td><td>Chairperson / Chair</td></tr>
+  </table>
+
+  <hr style="margin:1.5rem 0; border-color:#d5cfc0">
+
+  <h3>Denotation and Connotation</h3>
+  <p><strong>Denotation</strong> is the dictionary definition — the literal, exact meaning of a word.</p>
+  <p><strong>Connotation</strong> is the emotional or cultural meaning a word carries beyond its definition — its associations and feelings.</p>
+
+  <table>
+    <tr><th>Word</th><th>Denotation (Literal)</th><th>Connotation (Feeling)</th></tr>
+    <tr><td>Home</td><td>A building where someone lives</td><td>Warmth, safety, belonging (+)</td></tr>
+    <tr><td>Snake</td><td>A reptile without legs</td><td>Deceit, danger, treachery (−)</td></tr>
+    <tr><td>Childlike</td><td>Resembling a child</td><td>Innocent, curious, playful (+)</td></tr>
+    <tr><td>Childish</td><td>Resembling a child</td><td>Immature, silly, irresponsible (−)</td></tr>
+    <tr><td>Slim</td><td>Thin in body</td><td>Elegant, healthy, attractive (+)</td></tr>
+    <tr><td>Skinny</td><td>Thin in body</td><td>Unhealthily thin, sickly (−)</td></tr>
+    <tr><td>Cheap</td><td>Low in price</td><td>Poor quality, miserly (−)</td></tr>
+    <tr><td>Affordable</td><td>Low in price</td><td>Accessible, good value (+)</td></tr>
+  </table>
+
+  <div class="tip">
+    Writers choose words for their <strong>connotations</strong>, not just their denotations. Politicians say "slim government" not "skinny government." Advertisers say "pre-owned" not "used." Spotting this in a reading passage = inference skill.
+  </div>
+
+  <div class="example">
+    <strong>Same denotation, different connotation:</strong><br>
+    "She was <em>assertive</em> in the meeting." (positive — confident, strong)<br>
+    "She was <em>aggressive</em> in the meeting." (negative — hostile, threatening)<br>
+    Both describe similar behaviour — the word choice reveals the writer's attitude.
+  </div>
+</div>
+
+<hr>
+
+<!-- QUICK REFERENCE -->
+<div class="quick-ref">
+  <h2>⚡ Last-Minute Quick Reference</h2>
+  <ul>
+    <li><strong>Essay structure:</strong> Intro (hook + thesis) → Body (1 idea/paragraph) → Conclusion (restate + fresh insight)</li>
+    <li><strong>Persuasive thesis:</strong> Must be debatable. Test it: can someone argue the opposite? ✓ = good thesis</li>
+    <li><strong>Summary rule:</strong> MOM — Main points · Organised · My own words. No opinions. ~⅓ original length.</li>
+    <li><strong>Paraphrase ≠ copying:</strong> Change sentence structure AND vocabulary, not just synonyms. Always cite.</li>
+    <li><strong>Letter closing:</strong> Know name → "Yours sincerely" | Don't know name → "Yours faithfully"</li>
+    <li><strong>Connotation:</strong> Childlike (+) vs Childish (−) | Slim (+) vs Skinny (−) | Affordable (+) vs Cheap (−)</li>
+    <li><strong>Cohesive devices:</strong> Time (first/then/finally) · Contrast (however/although) · Result (therefore/consequently)</li>
+    <li><strong>Inclusive language:</strong> Person-first, gender-neutral, culturally sensitive. "Everyone" not "guys."</li>
+    <li><strong>Story elements:</strong> Setting, Character, Conflict, Plot (SCCP), Theme, Point of View</li>
+    <li><strong>Types of listening:</strong> Active, Passive, Critical, Empathetic, Informational, Appreciative</li>
+  </ul>
+</div>
+
+</div><!-- /container -->
+
+</body>
+</html>
